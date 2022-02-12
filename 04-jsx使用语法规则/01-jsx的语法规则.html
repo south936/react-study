@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jsx的语法规则</title>
+    <!-- 引入react js 核心库-->
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <!-- 用于  react-dom ，用于支撑react 操作dom-->
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <!-- 用于 babel ，用于将jsx 转化为 js-->
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .title {
+        background-color: aqua;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="test"></div>
+
+    <script type="text/babel">
+      // 模拟数据
+      const data = "hello react";
+      // 1.创建虚拟dom
+      const VDOM = (
+        <div>
+          <h1 className="title" style={{ color: "red", marginRight: "10em" }}>
+            {data}
+          </h1>
+          <h3>代码无bug</h3>
+          <input />
+          {/*<peiQi></peiQi>*/}
+        </div>
+      );
+      //2.渲染虚拟dom到页面
+      ReactDOM.render(VDOM, document.getElementById("test"));
+
+      /**
+       * jsx语法规则
+       * 1. 创建虚拟DOM时不要添加引号
+       * 2.标签中使用 变量，表达式，使用花括号
+       * 3.标签中样式类名由class 变成className
+       * 4.标签中内联样式要用双括号括起来 特殊：有- 连接 需要转成小驼峰 像margin-left 写成 marginLeft
+       * 5. 只能有一个根标签
+       * 6. 所有的标签必须都要闭合
+       * 7.关于标签首字母
+       *    1.若首字母小写，那么react 就会找与之同名的html标签，
+       *        找到，直接装换HTML同名元素
+       *        找不到，报错
+       *    2.若首字母大写，那么react 就会找与之同名的组件，
+       *        找到，直接使用组件
+       *        找不到，报错
+       * 8. 注释 {//}
+       * 
+       * 
+       * JSX 全称JavaScript XML
+       * 
+       */
+    </script>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jsx-小练习</title>
+    <!-- 引入react js 核心库-->
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <!-- 用于  react-dom ，用于支撑react 操作dom-->
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <!-- 用于 babel ，用于将jsx 转化为 js-->
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="test"></div>
+
+    <script type="text/babel">
+      /**
+       * 区分【js语句（代码）】 和【js表达式】
+       * 1.表达式，一个表达式产生一个值，可以放到任何一个需要的地方
+       *    下面的都是表达式：
+       *    a();
+       *    a+b;
+       *    demo(1);
+       *    arr.map();
+       *    function test(){}
+       *  2.语句（代码）
+       *  if(){}
+       *  for(){}
+       * switch(){case:xxx}
+       */
+      //模拟数据
+      let arr = [
+        { id: "001", name: "fish", age: 18 },
+        { id: "002", name: "dog", age: 10 },
+        { id: "003", name: "cat", age: 28 },
+      ];
+      let Arr=['zhang','en','nan']
+      //  1.创建虚拟DOM
+      let VDOM = (
+        <div>
+          <h1>前端js框架列表</h1>
+          <ul>
+            {arr.map((ele) => {
+              if(ele.age>17){
+                return  <li key={ele.id}>{`${ele.name}-${ele.age}`}</li>
+              }
+            })}
+          </ul>
+
+          <hr/>
+          <ul>
+          </ul>
+        </div>
+      );
+      //2.渲染虚拟DOM到页面
+      ReactDOM.render(VDOM, document.getElementById("test"));
+    </script>
+  </body>
+</html>

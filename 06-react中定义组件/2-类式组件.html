@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1-函数式组件</title>
+    <!-- 引入react js 核心库-->
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <!-- 用于  react-dom ，用于支撑react 操作dom-->
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <!-- 用于 babel ，用于将jsx 转化为 js-->
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="test"></div>
+
+    <script type="text/babel">
+      /**
+       * 1.类中的构造器不是必须要写的，如果想给实例添加一些独有的属性，那么必须写构造器；
+       * 2.如果A类继承了B类，且A类中写了构造器，那么在A类的构造器中必须调用super
+       * 3.类中的 方法是放在类的原型对象的，供实例使用，如果通过实例调用的方法，那么方法中的this就是实例对象
+       *
+       * */
+      // 1.定义一个组件（类式）
+      class Demo extends React.Component {
+        render(){
+          return <h2>我是用类定义的组件（适用于复杂组件定义）</h2>
+        }
+      }
+      //2. 渲染组件到页面
+      ReactDOM.render(<Demo />, document.getElementById("test"));
+    </script>
+  </body>
+</html>
